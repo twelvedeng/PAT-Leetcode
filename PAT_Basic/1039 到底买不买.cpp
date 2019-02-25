@@ -1,13 +1,13 @@
 #include <iostream>
 using namespace std;
-int a[256];
-int b[256];
+char a[256];
+char b[256];
 int main() {
 	string give, hong;
 	cin >> give >> hong;
 	int count = 0;
 	for (int i = 0; i < hong.size(); i++) a[hong[i]]++; 
-	for (int i = 0; i < give.size(); i++) b[give[j]]++;
+	for (int i = 0; i < give.size(); i++) b[give[i]]++;
 	for (int i = 0; i < hong.size(); i++) 
 		if (a[hong[i]] <= b[hong[i]]){
 			count += a[hong[i]];

@@ -4,18 +4,18 @@ using namespace std;
 //int a[101] = {0};
 int main() {
 	int n, grade, m, search;
-	cin >> n;
+	scanf("%d", &n);
 	vector<int> a(n);
 	for (int i = 0; i < n; i++) {
-		cin >> grade;
+		scanf("%d", &grade); 
 		a[grade]++;
 	}
-	cin >> m;
+	scanf("%d", &m);
 	int flag = 0;
 	for (int i = 0; i < m; i++) {
-		cin >> search;
-		if (flag) cout << " ";
-		cout << a[search];
+		scanf("%d", &search);
+		if (flag) printf(" "); 
+		printf("%d", a[search]);
 		flag = 1;
 	}
 	return 0;

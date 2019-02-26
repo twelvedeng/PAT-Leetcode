@@ -5,7 +5,7 @@ using namespace std;
 int main() {
 	int n, grade, m, search;
 	scanf("%d", &n);
-	vector<int> a(n);
+	vector<int> a(101);
 	for (int i = 0; i < n; i++) {
 		scanf("%d", &grade); 
 		a[grade]++;

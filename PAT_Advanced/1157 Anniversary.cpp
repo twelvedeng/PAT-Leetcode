@@ -1,5 +1,4 @@
-//这莫名其妙给我一种可以用hashing表的感觉 用map可以的吧
-//还有一种情况没考虑，a都为0 时 
+//杩欒帿鍚嶅叾濡欑粰鎴戜竴绉嶅彲浠ョ敤hashing琛ㄧ殑鎰熻 
 #include <iostream>
 #include <algorithm>
 #include <cctype>

@@ -56,11 +56,23 @@
 
 13. 头文件cctype包含的测试字符函数：
 
-    > isalpha(c)	//判断字符c是否为字母字符
+    > isalpha(c)	//判断字符c是否为字母字符,包括大小写
     >
     > isdigit(c)	//判断字符c是否为数字字符
     >
-    > isprint(c)	//判断字符c是否为可打印字符
+    > islower	//小写字母
+    >
+    > isupper	//大写字母
+    >
+    > isblank	//space&\t
+    >
+    > isalnum	//字母大小写&数字
+    >
+    > isprint	//是否为可打印字符
+    >
+    > tolower	//大写变小写 ==（c = c + 32)
+    >
+    > toupper	//小写变大写
     >
     > 还要补充
 

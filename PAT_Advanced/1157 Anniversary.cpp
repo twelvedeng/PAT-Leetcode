@@ -14,22 +14,30 @@ bool cmp(string a, string b) {
 int a[106] = {0};
 int main() {
 	int n, m;
-	string s1[106], s2;
+	string s1[106], s2[106];
 	scanf("%d", &n);
 	vector<string> v;
 	for (int i = 0; i < n; i++) 
 		cin >> s1[i];
 	scanf("%d", &m);
+	int flag = 0;
 	for (int i = 0; i < m; i++) {
-		cin >> s2;
+		cin >> s2[i];
 		for (int j = 0; j < n; j++)
-			if(s2 == s1[j]) a[j] = 1;	
+			if(s2[i] == s1[j]) {a[j] = 1; flag = 1;}
 	}
-	for (int i = 0; i < n; i++) 
-		if (a[i] == 1) v.push_back(s1[i]);
+	if (flag == 1){
+		for (int i = 0; i < n; i++) 
+			if (a[i] == 1) v.push_back(s1[i]);
+		printf("%d\n", v.size());
+	}else{
+		for (int i = 0; i < m; i++)
+			v.push_back(s2[i]);
+			cout << 0 << endl;
+	}
 	
 	sort(v.begin(), v.end(), cmp);
-	printf("%d\n", v.size());
+	//if(flag==1) ? printf("%d\n", v.size()) : cout << 0\n;
 	cout << v.front();
 	return 0;
 }

@@ -22,9 +22,7 @@
 
    > bool cmp(int a, int b) {
    >
-   > 	return a > b;
-   >
-   > }		//从小到大排序，注意cmp函数的返回类型
+   > ​	return a > b;	//从小到大排序，注意cmp函数的返回类型
    >
    > 
    >
@@ -32,14 +30,24 @@
    >
    > sort(a,  a + n,  cmp);		//给数组元素排序，a表示数组a的首地址，a + n为第n个元素
 
-6. 如果要定义很大数组的时候最好在main函数外面进行定义（因为作为局部变量储存在堆栈段，太大会导致栈溢出结果...可恶的段错误。
+6. 如果要定义很大数组的时候最好在main函数外面进行定义（因为作为局部变量储存在堆栈段，太大会导致栈溢出结果...可恶的段错误。（同时函数执行完毕的时候它的局部变量空间会被释放，无法再使用它的值。
 
 7. <u>**判断是否素数**</u>
 
    ```c++
+   //n = 1或n太大的时候不要用
    bool isprime(int a) {
        for (int i = 2; i * i <= a; i++)
            if (a % i == 0) return false;
+       return true;
+   }
+   
+   //啥时候都能用
+   bool isprime(int n) {
+       if (n <= 1) return false;
+       int m = floor(sqrt(n) + 0.5);	//floor取整避免浮点误差
+       for (int i = 2; i <= m; i++)
+           if (n % i == 0) return false;
        return true;
    }
    ```
@@ -88,25 +96,31 @@
     >
     > v.pop_back()	//拿出v数组最后一个元素
     >
+    > v.front()	//如果要输出v的第一个元素不能用v[0]或者v.begin()
+    >
     > v.resize()	//改变大小
 
 17. getline(cin, s);      //输入一整行字符串，以\n为标志结束。
 
 18. auto迭代器用来遍历动态的容器
 
-19. algorithm头文件：
+19. algorithm头文件里常用函数：
 
-    > max()	//返回较大的数
+    > max	//返回较大的数
     >
-    > min()	//返回较小的数
+    > min	//返回较小的数
     >
-    > swap()	//交换
+    > swap	//交换
+    >
+    > sort	//排序
 
 20. continue跳回for循环开始（直接进入下一轮循环）， break直接跳出循环。
 
 21. 设计递归程序的重点在于给下级安排工作。
 
-22. 
+22. 变量名前加&得到的是该变量的地址。
+
+23. 
 
 
 

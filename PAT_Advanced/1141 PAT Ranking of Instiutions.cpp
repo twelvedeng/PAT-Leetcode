@@ -13,7 +13,7 @@ bool cmp(sch &a, sch &b){
 	if (a.tws != b.tws)
 		return a.tws > b.tws;
 	else if(a.ns != b.ns)
-		return a.ns > b.ns;
+		return a.ns < b.ns;
 	return a.school < b.school;
 }
 int main() {

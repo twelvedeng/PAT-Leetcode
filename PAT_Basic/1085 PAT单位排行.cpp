@@ -1,13 +1,8 @@
-//#include <bits/stdc++.h>
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cctype>
-#include <unordered_map>
+#include <bits/stdc++.h>
 using namespace std;
 struct sch{
 	string school;
-	int tws, ns;	//加权排名、学生人数 
+	int tws, ns;	
 };
 bool cmp(sch a, sch b){
 	if (a.tws != b.tws)
@@ -20,8 +15,8 @@ int main() {
 	string id, school;
 	double score;
 	int n;
-	unordered_map<string, int> cnt;	//存学生人数
-	unordered_map<string, double> gre;	//存加权成绩 
+	unordered_map<string, int> cnt;	
+	unordered_map<string, double> gre;	/ 
 	vector<sch> v;
 	scanf("%d", &n);
 	
@@ -47,7 +42,6 @@ int main() {
 		printf ("%d ",rank);
 		cout << v[i].school;
 		printf(" %d %d\n", (int)v[i].tws, v[i].ns);
-		//cout << v[i].school << v[i].tws << v[i].ns << endl;
 	}
 	return 0;
 }

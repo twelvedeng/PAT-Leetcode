@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <numeric>
 using namespace std;
-//int num[10000] = {0};
 vector<int> v;
 void its_yin(int x) {
 	for (int i = 1; i <= floor(sqrt(x) + 0.5); i++){

@@ -1,6 +1,7 @@
+#include <cstdio> 
 #include <iostream>	
 #include <string>
-#include <algorithm>	//reverse()
+#include <algorithm>
 using namespace std;
 int main() {
 	string s, t;
@@ -17,12 +18,9 @@ int main() {
 		reverse(s.begin(), s.end());
 		cnt++;
 	}
-	if (s == t) {
-		cout << s;
-		printf(" is a palindromic number.\n");
-	}else /*if(cnt == 10)*/{
+	if (s == t) {cout << s;	printf(" is a palindromic number.\n");}
+	else
 		printf("Not found in 10 iterations.\n");
-	}
 	return 0;
 }
 

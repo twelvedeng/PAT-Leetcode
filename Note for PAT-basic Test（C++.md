@@ -16,9 +16,9 @@
 
 - 不从键盘端输入的变量最好初始化一下。
 
-- map键值对，每个键只出现一次（同一关键字），如map<string, int> m, 此时m.size()是关键字的个数。
+- map键值对，每个键只出现一次（同一关键字），如map<string, int> m, 此时m.size()是关键字的个数，键用it->first获取、值用it->second获取。
 
-- cmp()和排序函数sort()同时使用，sort默认从小到大排序，cmp定义排序方式。比如
+- sort函数默认升序排序，cmp可以自行定义排序方式与sort一起使用。比如
 
    > bool cmp(int a, int b) {
    >
@@ -123,6 +123,10 @@
 - 排序传参建议用引用（&变量），速度会变快
 
 - 查找字符串a是否包含子串b，不是用a.find(b) > 0而是a.find(b) != string::npos（string::npos作为特殊值，说明查找没有匹配）
+
+- 字符串的输入输出不要用C语言的scanf和printf来减少时间。
+
+- 
 
 
 

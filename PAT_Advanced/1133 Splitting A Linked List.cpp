@@ -23,16 +23,17 @@ int main() {
 			v[2].push_back(x);
 		x = list[x].next;
 	}
-	int flag = 0;
+	int cnt = 0;
 	int i, j;
 	for(i = 0; i < 3; i++) {
 		for(j = 0; j < v[i].size(); j++) {
-			if(list[v[i][j]].next != -1) {
+			if(cnt != n-1) {
 				printf("%05d %d %05d\n", v[i][j], list[v[i][j]].data, j+1==v[i].size() ? v[i+1][0] : v[i][j+1]);
-			}else{flag = 1; break;}
+				cnt++;
+			}else{break;}
 		}
-		if(flag) break;
+		if(cnt == n-1) break;
 	} 
-		printf("%05d %d -1\n", v[i][j], list[v[i][j]].data);
+	printf("%05d %d -1\n", v[i][j], list[v[i][j]].data);
 	return 0;
 }

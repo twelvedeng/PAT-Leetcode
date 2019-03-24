@@ -3,8 +3,7 @@
 using namespace std;
 struct node{
 	int data, next;
-};
-node list[100001];
+}list[100005];
 vector<int> v[3];
 int main() {
 	int first, k, n, temp;
@@ -24,7 +23,6 @@ int main() {
 		x = list[x].next;
 	}
 	int cnt = 0;
-	//int i, j;
 	for(int i = 0; i < 3; i++) {
 		for(int j = 0; j < v[i].size(); j++) {
 			if(cnt != n-1) {

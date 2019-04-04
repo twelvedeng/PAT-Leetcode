@@ -21,3 +21,23 @@ public:
         return false;
     }
 };
+/*2*/
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        set<ListNode*> hash;	/*创建ListNode*类型的集合，
+		这里要注意要存的是指向ListNode的指针，所以set的数据类型
+		是指向ListNode的指针类型*/ 
+        while(head != NULL) {
+            if(hash.find(head) != hash.end()){
+            	/*这里还可以用hash.count()!=0*/ 
+                return true;
+            }else {
+                hash.insert(head);
+                /*插入元素进hash*/ 
+            }
+            head = head->next;
+        }
+        return false;
+    }
+};

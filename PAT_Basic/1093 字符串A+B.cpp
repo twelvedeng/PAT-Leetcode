@@ -1,11 +1,10 @@
-//?getchar()是干啥的来着 
-//ASCII码啊字符可以当成整数用，所以普通数组就可以啦不用STL里的map容器 
+/*?getchar()鏄共鍟ョ殑鏉ョ潃 
+ASCII鐮佸晩瀛楃鍙互褰撴垚鏁存暟鐢紝鎵�浠ユ櫘閫氭暟缁勫氨鍙互鍟︿笉鐢⊿TL閲岀殑map瀹瑰櫒 */
 #include <iostream>
 using namespace std;
 int a[150] = {0};
 int main() {
 	string A, B, s;
-	
 	getline(cin, A);
 	getline(cin, B);
 	s = A + B; 

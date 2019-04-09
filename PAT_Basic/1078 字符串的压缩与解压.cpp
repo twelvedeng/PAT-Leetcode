@@ -1,3 +1,4 @@
+/*部分正确*/ 
 #include <iostream>
 #include <cctype>
 #include <string>
@@ -23,7 +24,6 @@ int main() {
 					result += s[i]; 
 			}
 		}
-	//	cout << result;
 	}else if(order == 'D') {
 		/*解压*/ int len;
 		for(int i = 0; i < s.length(); i++) {
@@ -49,7 +49,6 @@ int main() {
 					result += s[i];
 			}
 		}
-	//	cout << result;
 	} 
 	cout << result;
 	return 0;

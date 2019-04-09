@@ -21,4 +21,3 @@ int main() {
 	printf("%05d %d -1\n", list[n-1], data[list[n-1]]);
 	return 0;
 }
-24`

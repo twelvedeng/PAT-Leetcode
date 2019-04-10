@@ -13,17 +13,16 @@ int main() {
 	scanf("%d %d", &n, &head);
 	for(int i=0; i < n; i++) {
 		scanf("%d", &temp);
-		scanf("%d%d", &list[i].key, &list[i].next);
-		list[i].ads = temp;
+		scanf("%d%d", &list[temp].key, &list[temp].next);
+		list[temp].ads = temp;
 	}
 	int cnt = 0;
 	for( ; head != -1; head = list[head].next)
 		result[cnt++] = list[head];
-
 	sort(result, result+n, cmp);
-	printf("%d %05d\n", n, result[0].ads);
+	printf("%d %05d\n", cnt, result[0].ads);
 	for(int i=0; i < cnt-1; i++)
 		printf("%05d %d %05d\n", result[i].ads, result[i].key, result[i+1].ads);
-	printf("%05d %d -1\n", result[cnt-1].ads, result[cnt-1].key);
+	printf("%05d %d -1\n", result[n-1].ads, result[n-1].key);
 	return 0;
 }

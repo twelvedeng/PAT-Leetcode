@@ -132,6 +132,29 @@
     - s.find()          //寻找某元素，找到时返回迭代器，没找到返回s.end()
        - s.find(i)  !=  s.end()
     - s.count(i)       //返回元素i的个数
+27. 
+
+```c++
+// vector::at
+#include <iostream>
+#include <vector>
+
+int main ()
+{
+  std::vector<int> myvector (10);   // 10 zero-initialized ints
+
+  // assign some values:
+  for (unsigned i=0; i<myvector.size(); i++)
+    myvector.at(i)=i;
+
+  std::cout << "myvector contains:";
+  for (unsigned i=0; i<myvector.size(); i++)
+    std::cout << ' ' << myvector.at(i);
+  std::cout << '\n';
+
+  return 0;
+}
+```
 
 
 

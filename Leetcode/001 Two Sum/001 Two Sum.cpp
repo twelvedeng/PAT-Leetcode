@@ -19,7 +19,7 @@ public:
 };
 
 /*2*/
-//10ms
+//8ms
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {

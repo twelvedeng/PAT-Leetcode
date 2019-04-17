@@ -43,6 +43,8 @@ ListNode *p = (ListNode*)malloc(sizeof(ListNode));
 
 
 
+
+
 贴一些别人O(1)的代码有时间研究一下啊
 
 ```c++
@@ -57,5 +59,15 @@ public ListNode reverseList(ListNode head) {
     }
     return prev;
 }
+```
+
+
+
+2019.4.17更新一下，别人O(1)的代码和我的没有什么区别我刚发现...思想都是一样的
+
+以及我终于知道C++怎么new了！我真的..瞎入门cpp好多基础蒙圈噢
+
+```c++
+ListNode *p = new ListNode(-1);	//指向-1啊姐姐！
 ```
 

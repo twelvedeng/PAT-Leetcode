@@ -8,8 +8,9 @@ bool cmp(int a, int b) {
 }
 int a[100001];
 int main() {
-	int n, p;
-	scanf("%d %d", &n, &p); 
+	int n;
+	long long p;
+	scanf("%d %ld", &n, &p); 
 	for (int i = 0; i < n; i++) {
 		scanf("%d", &a[i]);
 	}

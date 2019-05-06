@@ -1,7 +1,11 @@
 #include <iostream>
 #include <vector>
+//#include <cmath> 
 #include <algorithm>
 using namespace std;
+bool cmp(int a, int b) {
+	return a > b;
+}
 int a[100001];
 int main() {
 	int n, p;
@@ -9,12 +13,13 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		scanf("%d", &a[i]);
 	}
-	sort(a, a+n-1);
+	sort(a, a+n-1, cmp);
 	vector<int> cnt(n);
 //	int min = a[0], max = a[0] * p;
 	for (int i = 0; i <= n/2; i++) {
-		int min = a[i];
-		int max = min * p;
+		int max = a[i], min;
+		if(a[i]%p != 0) min = a[i]/p+1;
+		else 			min = a[i]/p;
 		for (int j = i; j < n; j++) {
 			if(a[j] >= min && a[j] <= max)
 				cnt[i]++;

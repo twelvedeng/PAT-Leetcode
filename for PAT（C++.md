@@ -1,6 +1,4 @@
-
-
-#### 一些以前不了解的知识点（及常用函数）
+一些以前不了解的知识点（及常用函数）
 
 ***
 
@@ -10,9 +8,11 @@
 
 2. substr（）用于截取某个字符串中的子串，比如
 
-   > string s1 = s.substr(4);	//从s[4]一直到s结束
-   >
-   > string s2 = s.substr(5, 3);	//从s[5]开始截取三个字符
+   ```c++
+   string s1 = s.substr(4);	//从s[4]一直到s结束
+   
+   string s2 = s.substr(5, 3);	//从s[5]开始截取三个字符
+   ```
 
 3. 不从键盘端输入的变量最好初始化一下。
 
@@ -20,15 +20,19 @@
 
 5. sort函数默认升序排序，cmp可以自行定义排序方式与sort一起使用。比如
 
-   > bool cmp(int a, int b) {
-   >
-   > ​	return a > b;	//从小到大排序，注意cmp函数的返回类型
-   >
-   > 
-   >
-   > sort(v.begin(),  v.end(),  cmp); 	//与sort合用给vector v排序，begin()为数组头，end()为尾
-   >
-   > sort(a,  a + n,  cmp);		//给数组元素排序，a表示数组a的首地址，a + n为第n个元素
+   ```c++
+   bool cmp(int a, int b) {
+   
+   	return a > b;	//从小到大排序，注意cmp函数的返回类型
+   
+   }
+   
+   sort(v.begin(),  v.end(),  cmp); 	//与sort合用给vector v排序，begin()为数组头，end()为尾
+   
+   sort(a,  a + n,  cmp);		//给数组元素排序，a表示数组a的首地址，a + n为第n个元素
+   ```
+
+   
 
 6. 如果要定义很大数组的时候最好在main函数外面进行定义（因为作为局部变量储存在堆栈段，太大会导致栈溢出结果...可恶的段错误。（同时函数执行完毕的时候它的局部变量空间会被释放，无法再使用它的值。
 
@@ -64,25 +68,31 @@
 
 13. 头文件cctype包含的测试字符函数：
 
-   > isalpha(c)	//判断字符c是否为字母字符,包括大小写
-   >
-   > isdigit(c)	//判断字符c是否为数字字符
-   >
-   > islower	//小写字母
-   >
-   > isupper	//大写字母
-   >
-   > isblank	//space&\t
-   >
-   > isalnum	//字母大小写&数字
-   >
-   > isprint	//是否为可打印字符
-   >
-   > tolower	//大写变小写 ==（c = c + 32)
-   >
-   > toupper	//小写变大写
-   >
-   > 还要补充
+```markdown
+isalpha(c)	//判断字符c是否为字母字符,包括大小写
+
+isdigit(c)	//判断字符c是否为数字字符
+
+islower	//小写字母
+
+isupper	//大写字母
+
+isblank	//space&\t
+
+isalnum	//字母大小写&数字
+
+isprint	//是否为可打印字符
+
+tolower	//大写变小写 ==（c = c + 32)
+
+toupper	//小写变大写
+
+还要补充
+
+**<u>不用cctype头文件的大小写转换：<u>**小写转大写：-32；大写转小写：+32；
+```
+
+
 
 14. math头文件：abs()       //绝对值函数，
 
@@ -114,25 +124,30 @@
    >
    > sort	//排序
 
-20. continue跳回for循环开始（直接进入下一轮循环）， break直接跳出循环。
+continue跳回for循环开始（直接进入下一轮循环）， break直接跳出循环。
 
-21. 设计递归程序的重点在于给下级安排工作。
+设计递归程序的重点在于给下级安排工作。
 
-22. 变量名前加&得到的是该变量的地址。
+变量名前加&得到的是该变量的地址。
 
-23. 排序传参建议用引用（&变量），速度会变快
+排序传参建议用引用（&变量），速度会变快
 
-24. 查找字符串a是否包含子串b，不是用a.find(b) > 0而是a.find(b) != string::npos（string::npos作为特殊值，说明查找没有匹配）
+查找字符串a是否包含子串b，不是用a.find(b) > 0而是a.find(b) != string::npos（string::npos作为特殊值，说明查找没有匹配）
 
-25. 字符串的输入输出不要用C语言的scanf和printf来减少时间。
+字符串的输入输出不要用C语言的scanf和printf来减少时间。
 
-26. 【set集合】常用函数/*std::set<ElementType>  s;*/
+【STL-set】
 
-    - s.insert()	//向s插入数据元素
-    - s.find()          //寻找某元素，找到时返回迭代器，没找到返回s.end()
-       - s.find(i)  !=  s.end()
-    - s.count(i)       //返回元素i的个数
-27. //vector::at
+- - ```c++
+      s.insert()	//向s插入数据元素
+      s.find()          //寻找某元素，找到时返回迭代器，没找到返回s.end()
+       s.find(i)  !=  s.end()
+       s.count(i)       //返回元素i的个数
+     ```
+
+   
+
+【STL-vector】::at()
 
 ```c++
 // vector::at（map也可以用）
@@ -161,7 +176,9 @@ int main ()
 
 
 
-28. ```C++
+28. 【string-compare()】
+    
+    ```C++
     // comparing apples with apples
     #include <iostream>
     #include <string>
@@ -185,12 +202,50 @@ int main ()
     
       return 0;
     }
+output:
+    green apple is not red apple
+still, green apple is an apple
+    and red apple is also an apple
+    therefore, both are apples
     
+    ```
+    
+    
+    
+29. cmath头文件ceil()返回不小于x 的正整数（double类型）。
+
+30. 【STL-vector】::erase()
+
+    ```c++
+    // erasing from vector
+    #include <iostream>
+    #include <vector>
+    
+    int main ()
+    {
+      std::vector<int> myvector;
+    
+      // set some values (from 1 to 10)
+      for (int i=1; i<=10; i++) myvector.push_back(i);
+    
+      // erase the 6th element
+      myvector.erase (myvector.begin()+5);
+    
+      // erase the first 3 elements:
+      myvector.erase (myvector.begin(),myvector.begin()+3);
+    
+      std::cout << "myvector contains:";
+      for (unsigned i=0; i<myvector.size(); ++i)
+        std::cout << ' ' << myvector[i];
+      std::cout << '\n';
+    
+      return 0;
+    }
+    output:
+    myvector contains: 4 5 7 8 9 10
     ```
 
     
-
-29. 
 
 #### 一些thinking
 
@@ -222,6 +277,8 @@ int main ()
    > 不同关键字可能同时映射同一地址，这时候要尽量避免冲突。
 
 - 【C】fgets函数从指定文件读取字符串到字符数组。
+
+- <u>哈希表在PAT乙级：</u>一般给的数让你构造哈希表都是些ASCII码（可以直接用最简单的数组做标记），或者就是字符，map和set都很适合作为哈希表的容器。这样的题目类似于1033。
 
 
 

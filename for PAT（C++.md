@@ -48,10 +48,10 @@
    
    //啥时候都能用
    bool isprime(int n) {
-       if (n <= 2) return true;
+       if (n <= 1) return false;
        int m = floor(sqrt(n) + 0.5);	//floor取整避免浮点误差
        for (int i = 2; i <= m; i++)
-           if (n % i == 0) return false;
+           if (n % i == 0 && n != 2) return false;
        return true;
    }
    ```

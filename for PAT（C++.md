@@ -39,19 +39,20 @@
 7. <u>**判断是否素数**</u>
 
    ```c++
-   //n = 1或n太大的时候不要用
-   bool isprime(int a) {
-       for (int i = 2; i * i <= a; i++)
-           if (a % i == 0) return false;
+   //n太大的时候不要用
+   bool isprime(int n) {
+       if(n <= 1) return flase;
+       for(int i = 2; i * i <= n; i++)
+           if (n % i == 0) return false;
        return true;
    }
    
    //啥时候都能用
    bool isprime(int n) {
        if (n <= 1) return false;
-       int m = floor(sqrt(n) + 0.5);	//floor取整避免浮点误差
-       for (int i = 2; i <= m; i++)
-           if (n % i == 0 && n != 2) return false;
+       int sqr = (int)sqrt(1.0 * n);
+       for (int i = 2; i <= sqr; i++)
+           if (n % i == 0) return false;
        return true;
    }
    ```
@@ -135,17 +136,6 @@ continue跳回for循环开始（直接进入下一轮循环）， break直接跳
 查找字符串a是否包含子串b，不是用a.find(b) > 0而是a.find(b) != string::npos（string::npos作为特殊值，说明查找没有匹配）
 
 字符串的输入输出不要用C语言的scanf和printf来减少时间。
-
-【STL-set】
-
-- - ```c++
-      s.insert()	//向s插入数据元素
-      s.find()          //寻找某元素，找到时返回迭代器，没找到返回s.end()
-       s.find(i)  !=  s.end()
-       s.count(i)       //返回元素i的个数
-     ```
-
-   
 
 【STL-vector】::at()
 
@@ -304,7 +294,7 @@ still, green apple is an apple
 
 
 
-1009 说反话（堆栈
+<u>1009 说反话（堆栈</u>
 
 给定一句英语，要求你编写程序，将句中所有单词的顺序颠倒输出。
 
@@ -324,5 +314,31 @@ int main() {
 	}
 	return 0;
 }
+```
+
+
+
+**<u>进制转换</u>**
+
+将p进制数x转换为十进制数y
+
+```c++
+int y = 0, product = 1;
+while(x != 0) {
+    y = y + (x % 10) * product;
+    x = x / 10;		//去掉x的个位
+    product = product * p;
+}
+```
+
+将十进制数y转换为q进制数z
+
+```c++
+int z[40], num = 0;		//数组z存放q进制数y的每一位， num为位数
+do {	
+    z[num++] = y % q;	//除基取余
+    y = y / q;
+} while(y != 0);	//当商不为零时进行循环
+//z[num-1]到z[0]即为q进制z
 ```
 

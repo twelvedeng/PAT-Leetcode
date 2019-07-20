@@ -92,7 +92,7 @@ toupper	//小写变大写
 
 还要补充
 
-**<u>不用cctype头文件的大小写转换：<u>**小写转大写：-32；大写转小写：+32；
+不用cctype头文件的大小写转换：小写转大写：-32；大写转小写：+32；
 ```
 
 
@@ -146,8 +146,7 @@ continue跳回for循环开始（直接进入下一轮循环）， break直接跳
 #include <iostream>
 #include <vector>
 
-int main ()
-{
+int main () {
   std::vector<int> myvector (10);   // 10 zero-initialized ints
 
   // assign some values:

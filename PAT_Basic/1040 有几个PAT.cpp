@@ -1,23 +1,24 @@
 #include <iostream>
 using namespace std;
-int findchar( string str, char c ) {
-	int cnt = 0;
-	for(int i = 0; i < str.size(); i++)
-		if(str[i] == c) cnt++;
-	return cnt;
-}
+const int mod = 1000000007;
 int main() {
 	string str;
 	cin >> str;
-	int cntp, cntt;
-	long long int put = 0;
-	for (int i = 0; i < str.size(); i++) {
-		if(str[i] == 'A') {
-			cntp = findchar(str.substr(0, i+1), 'P');
-			cntt = findchar(str.substr(i), 'T');
-			put += (cntp * cntt)%1000000007;
-		}
+	int len = str.length();
+	int leftp[len] = {0}; 
+	for (int i = 0; i < len; i++) {
+		if(i > 0)
+			leftp[i] = leftp[i-1];
+		if(str[i] == 'P')
+			leftp[i]++;
 	}
-	cout << put%1000000007;
+	int ans = 0, right = 0;
+	for(int i = len - 1; i >= 0; i--) {
+		if(str[i] == 'T')
+			right++;
+		if(str[i] == 'A')
+			ans = (ans + leftp[i]*right) % mod;
+	}
+	cout << ans << endl;
 	return 0;
-}
+} 

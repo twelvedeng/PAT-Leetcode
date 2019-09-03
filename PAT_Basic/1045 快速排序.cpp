@@ -8,8 +8,8 @@ int main() {
 		cin >> str[i]; 
 	int yes[num] = {1};
 	int cnt = num;
-	
-	for (int i = 0; i < num; i++)
+
+/*	for (int i = 0; i < num; i++)
 		for (int j = num-1; j > i; j--)
 			if(str[j] < str[i] )
 				{ yes[i] = 0; cnt--; break; }
@@ -24,6 +24,6 @@ int main() {
 			if(flag) {cout << str[i]; flag = 0;}
 			else cout << " " << str[i];
 		}
-	}
+	}*/
 	return 0;
 } 

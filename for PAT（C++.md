@@ -53,11 +53,11 @@
    
    //啥时候都能用
    bool isprime(int n) {
-       if (n <= 1) return false;
-       int sqr = (int)sqrt(1.0 * n);
-       for (int i = 2; i <= sqr; i++)
-           if (n % i == 0) return false;
-       return true;
+       if (n <= 1) return false;	//特判
+       int sqr = (int)sqrt(1.0 * n);	//根号n
+       for (int i = 2; i <= sqr; i++)	//遍历2~根号n
+           if (n % i == 0) return false;	//n不是素数
+       return true;	//n是素数
    }
    ```
 

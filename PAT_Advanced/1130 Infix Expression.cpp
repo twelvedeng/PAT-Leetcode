@@ -5,9 +5,9 @@ struct node {
 	int l, r;
 }a[100];
 string dfs(int root) {
-	if(a[root].l == -1 && a[root].r == -1)	return "("+a[root].data+")";
+	if(a[root].l == -1 && a[root].r == -1)	return a[root].data;
 	if(a[root].l == -1 && a[root].r != -1)	return "("+a[root].data+dfs(a[root].r)+")";
-	if(a[root].l != -1 && a[root].r != -1)	return "("+dfs(a[root].l)+dfs(a[root].r)+a[root].data+")";
+	if(a[root].l != -1 && a[root].r != -1)	return "("+dfs(a[root].l)+a[root].data+dfs(a[root].r)+")";
 }
 int main() {
 	int have[100] = {0}, n, root = 1;
@@ -19,6 +19,7 @@ int main() {
 	}
 	while(have[root] == 1) root++;
 	string ans = dfs(root);
+	if(ans[0] == '(')	ans = ans.substr(1, ans.size()-2);
 	cout << ans;
 	return 0;
 }

@@ -13,6 +13,7 @@ int main() {
 		arr.push_back(x);
 	}	
 	sort(arr.begin(), arr.end());
+	int max = -1;
 	for (int i = 0; i < n; i++) {
 		int cnt = 0;
 		for (int j = i; j < n; j++) {
@@ -23,9 +24,9 @@ int main() {
 			else if(arr[j]/p+1 <= arr[i])
 				cnt++;	
 		}	
-		ans.push_back(cnt);
+		if(cnt > max) max = cnt;
 	}
-	sort(ans.begin(), ans.end());
-	printf("%d\n", ans.at(ans.size()-1));
+	//sort(ans.begin(), ans.end());
+	printf("%d\n", max);
 	return 0;		
 }

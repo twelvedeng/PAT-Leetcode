@@ -13,20 +13,15 @@ int main() {
 		arr.push_back(x);
 	}	
 	sort(arr.begin(), arr.end());
-	int max = -1;
+	int max = 0, cnt = 0;
 	for (int i = 0; i < n; i++) {
-		int cnt = 0;
-		for (int j = i; j < n; j++) {
-			if(arr[j]%p == 0) {
-				if(arr[j]/p <= arr[i])
-					cnt++;
-			}
-			else if(arr[j]/p+1 <= arr[i])
-				cnt++;	
-		}	
-		if(cnt > max) max = cnt;
+		for (int j = i+max; j < n; j++) {
+			if(arr[j] <= arr[i]*p) 
+                cnt = j-i+1;
+			else break;
+            if(cnt > max) max = cnt;
+        }
 	}
-	//sort(ans.begin(), ans.end());
 	printf("%d\n", max);
 	return 0;		
 }

@@ -5,9 +5,12 @@ struct node {
 	int l, r;
 }a[100];
 string dfs(int root) {
-	if(a[root].l == -1 && a[root].r == -1)	return "("+a[root].data+")";
-	if(a[root].l == -1 && a[root].r != -1)	return "("+a[root].data+dfs(a[root].r)+")";
-	if(a[root].l != -1 && a[root].r != -1)	return "("+dfs(a[root].l)+dfs(a[root].r)+a[root].data+")";
+	if(a[root].l == -1 && a[root].r == -1)	
+		return "("+a[root].data+")";
+	if(a[root].l == -1 && a[root].r != -1)	
+		return "("+a[root].data+dfs(a[root].r)+")";
+	if(a[root].l != -1 && a[root].r != -1)	
+		return "("+dfs(a[root].l)+dfs(a[root].r)+a[root].data+")";
 }
 int main() {
 	int have[100] = {0}, n, root = 1;

@@ -50,7 +50,7 @@ int main() {
 //			printf("-1\n");
 //			break;
 //		}
-		if(cnt %2 == 0) {
+		if(cnt %2 == 0 && q != -1) {
 			printf("%05d\n%05d %d ", q, q, list[q].val);
 			q = list[q].next;
 		}

@@ -30,8 +30,9 @@ int main() {
 		}
 		bool flag = false;
 		for(int j = pow(10, k-1); j < pow(10, k); j++) {
-			if(j%9 != 0) continue;	//?
-			//int num = sum(j);
+			//if(j%9 != 0) continue;	//cut leaves
+//			int num = sum(j);
+//			if(j%100 != 99) continue;
 			if(sum(j) == m) {
 				int n = sum(j+1);
 				int g = __gcd(n, m);

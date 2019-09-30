@@ -33,8 +33,6 @@ void dijk() {
 //	
 	for(int i = 0; i < n; i++) 
 		ans.push_back(dis[arr[i]]);
-//	for(int i = 0; i < n; i++) 
-//		printf("%d ", ans[i]);
 	
 	if(is_sorted(begin(ans), end(ans))) 
 		printf("Yes\n");

@@ -4,12 +4,13 @@ using namespace std;
 int main() {
 	int n; 
 	cin >> n;
+	getchar();
 	string str;
 	
 	for(int i = 0; i < n; i++) {
 		bool flag = true;
 		int alpha = 0, digit = 0;
-		cin >> str;
+		getline(cin, str);
 		cout << "Your password ";
 		if(str.size() >= 6) {
 			for(int j = 0; j < str.size(); j++) {

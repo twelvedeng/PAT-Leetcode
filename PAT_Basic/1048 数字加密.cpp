@@ -5,29 +5,28 @@ int main() {
 	string a, b;
 	cin >> a >> b;
 	getchar();
-	string alpha[13];
-	for(int i = 0; i < 13; i++) {
-		if(i < 10)	alpha[i] = i + '0';
-		if(i == 10) alpha[i] = 'J';
-		if(i == 11) alpha[i] = 'Q';
-		if(i == 12) alpha[i] = 'k';
-	}
+	char alpha[14] = {"0123456789JQK"};
 	reverse(a.begin(), a.end());
 	reverse(b.begin(), b.end());
+	int len;
+	if(a.size() > b.size()) {
+		len = a.size();
+		for(int i = b.size(); i < a.size(); i++)
+			b.insert(i, "0");
+	} else {
+		len = b.size();
+		for(int i = a.size(); i < b.size(); i++)
+			a.insert(i, "0");
+	}
 	string ans;
-	for(int i = 0; i < b.size(); i++) {
-		if(i > a.size()-1) {
-			ans += b[i];
-			continue;
-		}
+	for(int i = 0; i < len; i++) {
 		if(i%2 == 0) {
 			int sum = (a[i]-'0' + (b[i]-'0'))%inf;
-			string add = alpha[sum];
-			ans = ans + add;
+			ans += alpha[sum];
 		} else {
-			int add = b[i]-'0' - (a[i]-'0');
+			int add = b[i] - a[i];
 			if(add < 0) add += 10;
-			ans += (add+'0');
+			ans += alpha[add];
 		}
 	}
 	reverse(ans.begin(), ans.end());

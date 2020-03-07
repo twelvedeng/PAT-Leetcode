@@ -238,7 +238,8 @@ still, green apple is an apple
     myvector contains: 4 5 7 8 9 10
     ```
 
-    
+    31. 打印素数表
+    32. 
 
 #### 一些thinking
 

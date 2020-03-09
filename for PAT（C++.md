@@ -73,29 +73,27 @@
 
 15. 头文件cctype包含的测试字符函数：
 
-```markdown
-isalpha(c)	//判断字符c是否为字母字符,包括大小写
-
-isdigit(c)	//判断字符c是否为数字字符
-
-islower	//小写字母
-
-isupper	//大写字母
-
-isblank	//space&\t
-
-isalnum	//字母大小写&数字
-
-isprint	//是否为可打印字符
-
-tolower	//大写变小写 ==（c = c + 32)
-
-toupper	//小写变大写
-
-还要补充
-
-不用cctype头文件的大小写转换：小写转大写：-32；大写转小写：+32；
-```
+> isalpha(c)	//判断字符c是否为字母字符,包括大小写
+>
+> isdigit(c)	//判断字符c是否为数字字符
+>
+> islower	//小写字母
+>
+> isupper	//大写字母
+>
+> isblank	//space&\t
+>
+> isalnum	//字母大小写&数字
+>
+> isprint	//是否为可打印字符
+>
+> tolower	//大写变小写 ==（c = c + 32)
+>
+> toupper	//小写变大写
+>
+> 还要补充
+>
+> 不用cctype头文件的大小写转换：小写转大写：-32；大写转小写：+32；
 
 
 
@@ -129,55 +127,63 @@ toupper	//小写变大写
    >
    > sort	//排序
 
-continue跳回for循环开始（直接进入下一轮循环）， break直接跳出循环。
+20. continue跳回for循环开始（直接进入下一轮循环）， break直接跳出循环。
 
-设计递归程序的重点在于给下级安排工作。
+21. 设计递归程序的重点在于给下级安排工作。
 
-变量名前加&得到的是该变量的地址。
+22. 变量名前加&得到的是该变量的地址。
 
-排序传参建议用引用（&变量），速度会变快
+23. 排序传参建议用引用（&变量），速度会变快
 
-查找字符串a是否包含子串b，不是用a.find(b) > 0而是a.find(b) != string::npos（string::npos作为特殊值，说明查找没有匹配）
+24. 查找字符串a是否包含子串b，不是用a.find(b) > 0而是a.find(b) != string::npos（string::npos作为特殊值，说明查找没有匹配）
 
-字符串的输入输出不要用C语言的scanf和printf来减少时间。
+25. 字符串的输入输出不要用C语言的scanf和printf来减少时间。
 
-【STL-vector】::at()
+26. **【STL-vector】::at()**
 
-```c++
-// vector::at（map也可以用）
-#include <iostream>
-#include <vector>
+    ```cpp
+    // vector::at（map也可以用）
+    #include <iostream>
+    #include <vector>
+    
+    int main () {
+      std::vector<int> myvector (10);   // 10 zero-initialized ints
+    
+      // assign some values:
+      for (unsigned i=0; i<myvector.size(); i++)
+        myvector.at(i)=i;
+    
+      std::cout << "myvector contains:";
+      for (unsigned i=0; i<myvector.size(); i++)
+        std::cout << ' ' << myvector.at(i);
+      std::cout << '\n';
+    
+      return 0;
+    }
+    ```
 
-int main () {
-  std::vector<int> myvector (10);   // 10 zero-initialized ints
+    
 
-  // assign some values:
-  for (unsigned i=0; i<myvector.size(); i++)
-    myvector.at(i)=i;
+27. 没给确切输入数量的情况下，用while结合EOF
 
-  std::cout << "myvector contains:";
-  for (unsigned i=0; i<myvector.size(); i++)
-    std::cout << ' ' << myvector.at(i);
-  std::cout << '\n';
+    ```cpp
+    int i = 0;
+    while(scanf("%d", a[i]) != EOF) {
+        //一直输入直到文件末尾
+    	i++;
+    } 
+    ```
 
-  return 0;
-}
-
-```
-
-
-
-
+    要注意的是，在黑框中手动输入市，系统并不知道什么时候到达了“文件末尾”，因此需要用【Crtl+Z】组合键然后按【Enter】键的方式来告诉系统已经到了EOF，这样系统才会结束while。
 
 28. 【string-compare()】
     
-    ```C++
+    ```Cpp
     // comparing apples with apples
     #include <iostream>
     #include <string>
     
-    int main ()
-    {
+    int main () {
       std::string str1 ("green apple");
       std::string str2 ("red apple");
     
@@ -195,10 +201,10 @@ int main () {
     
       return 0;
     }
-output:
-    green apple is not red apple
-still, green apple is an apple
-    and red apple is also an apple
+    output:
+green apple is not red apple
+    still, green apple is an apple
+and red apple is also an apple
     therefore, both are apples
     
     ```
@@ -214,8 +220,7 @@ still, green apple is an apple
     #include <iostream>
     #include <vector>
     
-    int main ()
-    {
+    int main () {
       std::vector<int> myvector;
     
       // set some values (from 1 to 10)
@@ -237,9 +242,12 @@ still, green apple is an apple
     output:
     myvector contains: 4 5 7 8 9 10
     ```
+    
 
-    31. 打印素数表
-    32. 
+
+
+
+
 
 #### 一些thinking
 
@@ -247,9 +255,9 @@ still, green apple is an apple
 
 
 
-- <u>即时处理</u>：我最开始喜欢把键盘端输入的数都放起来（比如用数组），然后再去做核心计算。这样不仅增加了空间复杂度，还浪费内存（因为要开辅助空间）。即时处理的思想是，在一组数据互相不需要进行计算或者排序的时候，可以直接在输入的同时做判断，这样输入和计算可以共用一个for循环，同理，计算与输出有时也可以合并。其实就是“在线”：每输入一个数据就进行即时处理，在任何一个地方中止输入，算法都能正确给出当前的解。
+- **<u>即时处理</u>：**我最开始喜欢把键盘端输入的数都放起来（比如用数组），然后再去做核心计算。这样不仅增加了空间复杂度，还浪费内存（因为要开辅助空间）。即时处理的思想是，在一组数据互相不需要进行计算或者排序的时候，可以直接在输入的同时做判断，这样输入和计算可以共用一个for循环，同理，计算与输出有时也可以合并。**其实就是“在线”：每输入一个数据就进行即时处理，在任何一个地方中止输入，算法都能正确给出当前的解**。
 
-- <u>用flag之类做标记</u>：常见用法类似于最后做输出时每个数直接需要one space，但是最后一个数不要space的时候（如下，要输出一个vector里面的数，初始flag = 0
+- **<u>用flag之类做标记</u>：**常见用法类似于最后做输出时每个数直接需要one space，但是最后一个数不要space的时候（如下，要输出一个vector里面的数，初始flag = 0
 
    ```c++
    int flag = 0;
@@ -262,9 +270,9 @@ still, green apple is an apple
    	}
    ```
 
-- <u>keep it simple and stupid.</u>:能不复杂化就不要复杂化，比如18年12月那个1093那个题，ascii码可以直接做数组下标，所以用数组就可以做哈希表的题目，我一直在用map搞鼓，最后死于对map的不熟悉上。
+- **<u>keep it simple and stupid.</u>:**能不复杂化就不要复杂化，比如18年12月那个1093那个题，ascii码可以直接做数组下标，所以用数组就可以做哈希表的题目，我一直在用map搞鼓，最后死于对map的不熟悉上。
 
-- <u>hashing散列：</u>
+- **<u>hashing散列：</u>**
 
    > 以关键字key为自变量，通过一个确定的函数n(散列函数)，计算出对应函数值h(key)，作为数据对象存储地址。
    >
@@ -272,9 +280,13 @@ still, green apple is an apple
 
 - 【C】fgets函数从指定文件读取字符串到字符数组。
 
-- <u>哈希表在PAT乙级：</u>一般给的数让你构造哈希表都是些ASCII码（可以直接用最简单的数组做标记），或者就是字符，map和set都很适合作为哈希表的容器。这样的题目类似于1033。
+- **<u>哈希表在PAT乙级：</u>**一般给的数让你构造哈希表都是些ASCII码（可以直接用最简单的数组做标记），或者就是字符，map和set都很适合作为哈希表的容器。这样的题目类似于1033。
 
 - 65～90为26个大写英文字母，97～122号为26个小写英文字母
+
+
+
+
 
 
 
@@ -292,13 +304,17 @@ still, green apple is an apple
 
 
 
+
+
+
+
 #### 比较少见的题目类型（堆栈之类）
 
 ***
 
 
 
-<u>1009 说反话（堆栈</u>
+**<u>1009 说反话（堆栈</u>**
 
 给定一句英语，要求你编写程序，将句中所有单词的顺序颠倒输出。
 

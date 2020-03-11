@@ -33,7 +33,10 @@ for(it; it != s.end(); it++) cout << *it;
 ans:3,4,5
 ```
 
+
+
 **Tips**
 
 1. double类型乘的时候浮点数可能会缺失，在所有乘数前加（double）
 2. str.append()，在字符串之后添加东西
+

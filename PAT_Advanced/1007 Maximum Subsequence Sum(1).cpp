@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main () {
-	int n, a[100001], index;
+	int k, a[100001], index;
 	int thissum = 0, maxsum = -1;
-	cin >> n;
+	cin >> k;
 	int left = 0, right = n-1;
-	for(int i = 0; i < n; i++) {
+	for(int i = 0; i < k; i++) {
 		cin >> a[i];
 		thissum += a[i];
 		if(thissum > maxsum) {

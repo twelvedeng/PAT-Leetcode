@@ -20,6 +20,8 @@ hence	adj. 因此，以后
 
 queries	n. 问题；怀疑；问号（query的复数形式）v. [计] 查询（query的第三人称单数形式）；询问；质询
 
+exponents and coefficients	指数和系数
+
 ------
 
 **STL相关**

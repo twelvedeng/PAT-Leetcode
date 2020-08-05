@@ -73,73 +73,80 @@
 
 15. 头文件cctype包含的测试字符函数：
 
-> isalpha(c)	//判断字符c是否为字母字符,包括大小写
->
-> isdigit(c)	//判断字符c是否为数字字符
->
-> islower	//小写字母
->
-> isupper	//大写字母
->
-> isblank	//space&\t
->
-> isalnum	//字母大小写&数字
->
-> isprint	//是否为可打印字符
->
-> tolower	//大写变小写 ==（c = c + 32)
->
-> toupper	//小写变大写
->
-> 还要补充
->
-> 不用cctype头文件的大小写转换：小写转大写：-32；大写转小写：+32；
+    ```markdown
+    isalpha(c)	//判断字符c是否为字母字符,包括大小写
+    
+    isdigit(c)	//判断字符c是否为数字字符
+    
+    islower	//小写字母
+    
+    isupper	//大写字母
+    
+    isblank	//space&\t
+    
+    isalnum	//字母大小写&数字
+    
+    isprint	//是否为可打印字符
+    
+    tolower	//大写变小写 ==（c = c + 32)
+    
+    toupper	//小写变大写
+    
+    还要补充
+    
+    不用cctype头文件的大小写转换：小写转大写：-32；大写转小写：+32；
+    ```
 
+    
 
+16. math头文件：abs()       //绝对值函数，
 
-14. math头文件：abs()       //绝对值函数，
+17. 需要四舍五入的情况就int(x + 0.5);  floor()函数返回不超过x的最大整数。
 
-15. 需要四舍五入的情况就int(x + 0.5);  floor()函数返回不超过x的最大整数。
+18. 关于动态数组vector v
 
-16. 关于动态数组vector v
+    ```markdown
+    v.size()	//读取大小
+    
+    v.push_back()	//向尾部添加元素
+    
+    v.pop_back()	//拿出v数组最后一个元素
+    
+    v.front()	//如果要输出v的第一个元素不能用v[0]或者v.begin()
+    
+    v.resize()	//改变大小
+    ```
 
-   > v.size()	//读取大小
-   >
-   > v.push_back()	//向尾部添加元素
-   >
-   > v.pop_back()	//拿出v数组最后一个元素
-   >
-   > v.front()	//如果要输出v的第一个元素不能用v[0]或者v.begin()
-   >
-   > v.resize()	//改变大小
+    
 
-17. getline(cin, s);      //输入一整行字符串，以\n为标志结束。
+19. getline(cin, s);      //输入一整行字符串，以\n为标志结束。
 
-18. auto迭代器用来遍历动态的容器
+20. auto迭代器用来遍历动态的容器
 
-19. algorithm头文件里常用函数：
+21. algorithm头文件里常用函数：
 
-   > max	//返回较大的数
-   >
-   > min	//返回较小的数
-   >
-   > swap	//交换
-   >
-   > sort	//排序
+    ```markdown
+    max()	//返回较大的数
+    min()	//返回较小的数
+    swap()	//交换
+    sort()	//排序
+    ```
 
-20. continue跳回for循环开始（直接进入下一轮循环）， break直接跳出循环。
+    
 
-21. 设计递归程序的重点在于给下级安排工作。
+22. continue跳回for循环开始（直接进入下一轮循环）， break直接跳出循环。
 
-22. 变量名前加&得到的是该变量的地址。
+23. 设计递归程序的重点在于给下级安排工作。
 
-23. 排序传参建议用引用（&变量），速度会变快
+24. 变量名前加&得到的是该变量的地址。
 
-24. 查找字符串a是否包含子串b，不是用a.find(b) > 0而是a.find(b) != string::npos（string::npos作为特殊值，说明查找没有匹配）
+25. 排序传参建议用引用（&变量），速度会变快
 
-25. 字符串的输入输出不要用C语言的scanf和printf来减少时间。
+26. 查找字符串a是否包含子串b，不是用a.find(b) > 0而是a.find(b) != string::npos（string::npos作为特殊值，说明查找没有匹配）
 
-26. **【STL-vector】::at()**
+27. 字符串的输入输出不要用C语言的scanf和printf来减少时间。
+
+28. **【STL-vector】::at()**
 
     ```cpp
     // vector::at（map也可以用）
@@ -159,12 +166,12 @@
       std::cout << '\n';
     
       return 0;
-    }
+    }  
     ```
 
     
 
-27. 没给确切输入数量的情况下，用while结合EOF
+29. 没给确切输入数量的情况下，用while结合EOF
 
     ```cpp
     int i = 0;
@@ -174,75 +181,72 @@
     } 
     ```
 
-    要注意的是，在黑框中手动输入市，系统并不知道什么时候到达了“文件末尾”，因此需要用【Crtl+Z】组合键然后按【Enter】键的方式来告诉系统已经到了EOF，这样系统才会结束while。
+    
 
-28. 【string-compare()】
-    
-    ```Cpp
-    // comparing apples with apples
-    #include <iostream>
-    #include <string>
-    
-    int main () {
-      std::string str1 ("green apple");
-      std::string str2 ("red apple");
-    
-      if (str1.compare(str2) != 0)
-        std::cout << str1 << " is not " << str2 << '\n';
-    
-      if (str1.compare(6,5,"apple") == 0)
-        std::cout << "still, " << str1 << " is an apple\n";
-    
-      if (str2.compare(str2.size()-5,5,"apple") == 0)
-        std::cout << "and " << str2 << " is also an apple\n";
-    
-      if (str1.compare(6,5,str2,4,5) == 0)
-        std::cout << "therefore, both are apples\n";
-    
-      return 0;
-    }
-    output:
+要注意的是，在dos黑框中手动输入时，系统并不知道什么时候到达了“文件末尾”，因此需要用【Crtl+Z】组合键然后按【Enter】键的方式来告诉系统已经到了EOF文件末尾，这样系统才会结束循环。
+
+30.【string-compare()】
+
+```cpp
+// comparing apples with apples
+#include <iostream>
+#include <string>
+
+int main () {
+  std::string str1 ("green apple");
+  std::string str2 ("red apple");
+
+  if (str1.compare(str2) != 0)
+    std::cout << str1 << " is not " << str2 << '\n';
+
+  if (str1.compare(6,5,"apple") == 0)
+    std::cout << "still, " << str1 << " is an apple\n";
+
+  if (str2.compare(str2.size()-5,5,"apple") == 0)
+    std::cout << "and " << str2 << " is also an apple\n";
+
+  if (str1.compare(6,5,str2,4,5) == 0)
+    std::cout << "therefore, both are apples\n";
+
+  return 0;
+}
+output:
 green apple is not red apple
-    still, green apple is an apple
+still, green apple is an apple
 and red apple is also an apple
-    therefore, both are apples
-    
-    ```
-    
-    
-    
-29. cmath头文件ceil()返回不小于x 的正整数（double类型）。
+therefore, both are apples
+```
 
-30. 【STL-vector】::erase()
+31. cmath头文件ceil()返回不小于x 的正整数（double类型）。
+32. 【STL-vector】::erase()
 
-    ```c++
-    // erasing from vector
-    #include <iostream>
-    #include <vector>
-    
-    int main () {
-      std::vector<int> myvector;
-    
-      // set some values (from 1 to 10)
-      for (int i=1; i<=10; i++) myvector.push_back(i);
-    
-      // erase the 6th element
-      myvector.erase (myvector.begin()+5);
-    
-      // erase the first 3 elements:
-      myvector.erase (myvector.begin(),myvector.begin()+3);
-    
-      std::cout << "myvector contains:";
-      for (unsigned i=0; i<myvector.size(); ++i)
-        std::cout << ' ' << myvector[i];
-      std::cout << '\n';
-    
-      return 0;
-    }
-    output:
-    myvector contains: 4 5 7 8 9 10
-    ```
-    
+```c++
+// erasing from vector
+#include <iostream>
+#include <vector>
+
+int main () {
+  std::vector<int> myvector;
+
+  // set some values (from 1 to 10)
+  for (int i=1; i<=10; i++) myvector.push_back(i);
+
+  // erase the 6th element
+  myvector.erase (myvector.begin()+5);
+
+  // erase the first 3 elements:
+  myvector.erase (myvector.begin(),myvector.begin()+3);
+
+  std::cout << "myvector contains:";
+  for (unsigned i=0; i<myvector.size(); ++i)
+    std::cout << ' ' << myvector[i];
+  std::cout << '\n';
+
+  return 0;
+}
+output:
+myvector contains: 4 5 7 8 9 10
+```
 
 
 
